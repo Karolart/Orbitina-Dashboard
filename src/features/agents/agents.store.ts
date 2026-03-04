@@ -24,7 +24,15 @@ type AgentsState = {
   }) => string;
 
   deleteGroup: (groupId: string) => void;
+
   deleteInstance: (groupId: string, instanceId: string) => void;
+
+  updateGroup: (
+    groupId: string,
+    data: Partial<
+      Pick<AgentGroup, "name" | "description" | "type" | "personality" | "color">
+    >
+  ) => void;
 
   updateInstance: (
     groupId: string,
@@ -71,9 +79,7 @@ export const useAgentsStore = create<AgentsState>()(
 
       deleteGroup: (groupId) => {
         set((state) => ({
-          agents: state.agents.filter(
-            (g) => g.id !== groupId
-          ),
+          agents: state.agents.filter((g) => g.id !== groupId),
         }));
       },
 
@@ -87,6 +93,19 @@ export const useAgentsStore = create<AgentsState>()(
                   instances: group.instances.filter(
                     (inst) => inst.id !== instanceId
                   ),
+                }
+          ),
+        }));
+      },
+
+      updateGroup: (groupId, data) => {
+        set((state) => ({
+          agents: state.agents.map((group) =>
+            group.id !== groupId
+              ? group
+              : {
+                  ...group,
+                  ...data,
                 }
           ),
         }));
