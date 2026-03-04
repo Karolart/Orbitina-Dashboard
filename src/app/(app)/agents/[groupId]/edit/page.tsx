@@ -1,14 +1,16 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import { useAgents } from "@/features/agents/hooks/useAgents";
+import { useAgentsStore } from "@/features/agents/agents.store";
 import AgentForm from "@/features/agents/components/AgentForm";
 import { AgentGroup } from "@/features/agents/agent.types";
 
 export default function EditAgentPage() {
   const params = useParams();
   const router = useRouter();
-  const { agents, updateGroup, loaded } = useAgents();
+
+  const agents = useAgentsStore((s) => s.agents);
+  const updateGroup = useAgentsStore((s) => s.updateGroup);
 
   const rawId = params.groupId;
 
@@ -19,7 +21,6 @@ export default function EditAgentPage() {
       ? rawId[0]
       : undefined;
 
-  if (!loaded) return null;
   if (!groupId) return <div className="p-8">Invalid ID</div>;
 
   const group = agents.find((g) => g.id === groupId);
