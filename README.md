@@ -1,4 +1,4 @@
-![Orbitina Banner](https://www.canva.com/design/DAHC92PsaXM/vZJNoDT9p85mbpAdtuuCFQ/view?utm_content=DAHC92PsaXM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc6b3acb459)
+![Orbitina Banner](public/banner.png)
 
 # AI Agents Platform – Frontend Technical Assessment
 
