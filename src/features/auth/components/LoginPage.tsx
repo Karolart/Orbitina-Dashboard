@@ -156,7 +156,7 @@ export default function LoginPage() {
               disabled={loading}
               className="w-full h-12 rounded-full bg-gradient-to-r from-[#00D9FF] to-[#7FE9DE] hover:from-[#00C4EA] hover:to-[#6DD4C9] text-[#0F172A] font-semibold shadow-lg shadow-[#00D9FF]/30 hover:shadow-xl hover:shadow-[#00D9FF]/40 transition-all duration-300"
             >
-              {loading ? "Launching..." : "Launch Dashboard"}
+              {loading ? "Launching..." : "Login"}
             </button>
           </form>
 

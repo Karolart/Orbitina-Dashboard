@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Trash2 } from "lucide-react";
 import { useEffect, useState, useMemo } from "react";
 import { useAgentsStore } from "@/features/agents/agents.store";
+import { ArrowLeft } from "lucide-react";
 
 // Límite de paginación
 const LIMIT = 6;
@@ -58,10 +59,21 @@ export default function AgentGroupPage() {
   if (!group) return <div className="p-8 text-white">Group not found</div>;
 
   return (
-    <div className="p-8 space-y-8">
 
-      {/* HEADER */}
-      <div className="rounded-3xl p-8 bg-[#0a0f18]/80 border border-cyan-400/20 shadow-lg">
+      
+<div className="p-8 space-y-8">
+
+  {/* BACK BUTTON */}
+  <Link
+    href="/agents"
+    className="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition group w-fit"
+  >
+    <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+    <span className="text-sm font-medium">Back</span>
+  </Link>
+
+  {/* HEADER */}
+  <div className="rounded-3xl p-8 bg-[#0a0f18]/80 border border-cyan-400/20 shadow-lg">
         <h1 className="text-4xl font-bold text-white mb-2">
           {group.name}
         </h1>
@@ -72,6 +84,7 @@ export default function AgentGroupPage() {
           {total} {total === 1 ? "Agent" : "Agents"} in this group
         </div>
       </div>
+      
 
       {/* FILTERS */}
       <div className="flex flex-wrap gap-4">
