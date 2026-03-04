@@ -1,4 +1,4 @@
-import { AgentGroup } from "./agent.types";
+import { AgentGroup, AgentInstance } from "./agent.types";
 
 export function createAgentGroup(data: {
   name: string;
@@ -9,11 +9,16 @@ export function createAgentGroup(data: {
   color: string;
 }): AgentGroup {
 
-  const instances = Array.from({ length: data.quantity }, (_, i) => ({
-    id: Math.random().toString(36).substring(2),
-    number: i + 1,
-    createdAt: new Date().toISOString(),
-  }));
+  const instances: AgentInstance[] = Array.from(
+    { length: data.quantity },
+    (_, i): AgentInstance => ({
+      id: Math.random().toString(36).substring(2),
+      number: i + 1,
+      createdAt: new Date().toISOString(),
+      status: "active",
+      nickname: "",
+    })
+  );
 
   return {
     id: Math.random().toString(36).substring(2),
