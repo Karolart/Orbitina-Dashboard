@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==============================
+   BASE SYSTEM
+============================== */
+
+@layer base {
+  :root {
+    --radius: 22px;
+
+    --bg-0: #080C13;
+    --bg-1: #0E1422;
+    --bg-2: #141B2E;
+
+    --accent: #22D3EE;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    color: #E6EAF2;
+    background:
+      radial-gradient(circle at 50% 30%, rgba(34,211,238,0.05), transparent 50%),
+      radial-gradient(circle at 10% 90%, rgba(34,211,238,0.04), transparent 60%),
+      linear-gradient(160deg, var(--bg-0) 0%, var(--bg-1) 50%, var(--bg-2) 100%);
+  }
+
+  h1 { @apply text-2xl font-semibold tracking-tight; }
+  h2 { @apply text-xl font-semibold; }
+  h3 { @apply text-lg font-medium; }
+  h4 { @apply text-base font-medium; }
+
+  p {
+    line-height: 1.65;
+    color: #B8C1D9;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply rounded-xl border px-3 py-2 outline-none transition;
+    background: rgba(255,255,255,0.035);
+    border-color: rgba(34,211,238,0.12);
+    color: #E6EAF2;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: rgba(34,211,238,0.35);
+  }
+}
+
+/* Remove number arrows */
+input[type="number"] {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
