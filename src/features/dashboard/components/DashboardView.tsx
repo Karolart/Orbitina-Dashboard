@@ -38,7 +38,7 @@ export default function DashboardView() {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
         audioRef.current.volume = 0.7;
-        audioRef.current.play().catch(() => { });
+        audioRef.current.play().catch(() => {});
       }
 
       return next;
@@ -47,10 +47,10 @@ export default function DashboardView() {
 
   return (
     <div className="min-h-screen px-10 py-16 bg-gradient-to-br from-[#0b0f16] via-[#0e1622] to-[#0b0f16] text-slate-200">
+      
+      {/* HEADER */}
       <header className="max-w-6xl mx-auto flex items-center justify-end mb-16 border-b border-cyan-500/20 pb-6">
-
         <div className="flex items-center gap-8 text-sm tracking-wide">
-
           <Link
             href="/agents"
             className="text-slate-400 hover:text-cyan-300 transition-colors"
@@ -64,9 +64,7 @@ export default function DashboardView() {
           >
             Logout
           </button>
-
         </div>
-
       </header>
 
       <div className="max-w-6xl mx-auto space-y-20">
@@ -88,7 +86,6 @@ export default function DashboardView() {
 
             {/* POWER BUTTON */}
             <div className="relative w-80 h-80 flex items-center justify-center">
-
               <motion.button
                 onClick={handlePowerToggle}
                 whileTap={{ scale: 0.95 }}
@@ -96,14 +93,13 @@ export default function DashboardView() {
               >
 
                 <div
-                  className={`
-                    absolute inset-0 rounded-full transition-all duration-700
-                    bg-gradient-to-br from-slate-800 to-slate-950
-                    ${systemOn
+                  className={`absolute inset-0 rounded-full transition-all duration-700
+                  bg-gradient-to-br from-slate-800 to-slate-950
+                  ${
+                    systemOn
                       ? "shadow-[0_0_80px_rgba(34,211,238,1)]"
                       : "shadow-[0_0_25px_rgba(34,211,238,0.4)]"
-                    }
-                  `}
+                  }`}
                 />
 
                 <Image
@@ -142,7 +138,7 @@ export default function DashboardView() {
           <motion.div
             animate={{
               opacity: systemOn ? 1 : 0.25,
-              filter: systemOn ? "brightness(1)" : "brightness(0.6)"
+              filter: systemOn ? "brightness(1)" : "brightness(0.6)",
             }}
             transition={{ duration: 0.6 }}
             className="space-y-8"
@@ -167,7 +163,6 @@ export default function DashboardView() {
             {agents.slice(0, 3).map((group) => {
 
               const total = group.instances?.length ?? 0;
-
               const active =
                 group.instances?.filter((i) => i.status === "active").length ?? 0;
 
@@ -200,7 +195,6 @@ export default function DashboardView() {
                   </div>
 
                   <Link href={`/agents/${group.id}`}>
-
                     <div className="flex flex-col items-center space-y-4">
 
                       <div
@@ -229,13 +223,13 @@ export default function DashboardView() {
                       </div>
 
                     </div>
-
                   </Link>
 
                 </div>
               );
             })}
           </div>
+
         </div>
       </div>
 
@@ -244,18 +238,23 @@ export default function DashboardView() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="mt-40 flex justify-end items-center pb-8 group"
+        className="mt-40 flex justify-end items-center pb-8"
       >
-        <div className="flex items-center gap-3">
-
+        <a
+          href="https://github.com/Karolart/Orbitina-Dashboard"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="View source on GitHub"
+          className="flex items-center gap-3 group"
+        >
           <div
             className="
-        relative w-12 h-12 rounded-full overflow-hidden
-        border border-cyan-400/30
-        transition-all duration-300
-        group-hover:border-cyan-400/70
-        group-hover:shadow-[0_0_18px_rgba(34,211,238,0.7)]
-      "
+            relative w-12 h-12 rounded-full overflow-hidden
+            border border-cyan-400/30
+            transition-all duration-300
+            group-hover:border-cyan-400/70
+            group-hover:shadow-[0_0_18px_rgba(34,211,238,0.7)]
+            "
           >
             <Image
               src="/KarolartLogo.svg"
@@ -267,16 +266,15 @@ export default function DashboardView() {
 
           <p
             className="
-        text-[11px] tracking-[0.25em]
-        text-cyan-400/40
-        transition-all duration-300
-        group-hover:text-cyan-300
-      "
+            text-[11px] tracking-[0.25em]
+            text-cyan-400/40
+            transition-all duration-300
+            group-hover:text-cyan-300
+            "
           >
             © 2026 — Karolart90
           </p>
-
-        </div>
+        </a>
       </motion.footer>
 
       {/* AUDIO */}
@@ -302,8 +300,9 @@ function StatCard({
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`rounded-2xl p-6 bg-[#0a0f18] border ${glow ? "border-cyan-400/50" : "border-cyan-500/20"
-        }`}
+      className={`rounded-2xl p-6 bg-[#0a0f18] border ${
+        glow ? "border-cyan-400/50" : "border-cyan-500/20"
+      }`}
     >
       <p className="text-[11px] tracking-[0.25em] text-cyan-300/60 uppercase">
         {label}
@@ -314,14 +313,14 @@ function StatCard({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
-        className={`mt-4 text-4xl font-mono font-bold ${glow
-          ? "text-cyan-300 drop-shadow-[0_0_18px_rgba(34,211,238,1)]"
-          : "text-cyan-300/70"
-          }`}
+        className={`mt-4 text-4xl font-mono font-bold ${
+          glow
+            ? "text-cyan-300 drop-shadow-[0_0_18px_rgba(34,211,238,1)]"
+            : "text-cyan-300/70"
+        }`}
       >
         {value}
       </motion.p>
-
     </motion.div>
   );
 }

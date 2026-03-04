@@ -1,4 +1,20 @@
+![Orbitina Banner](https://www.canva.com/design/DAHC92PsaXM/vZJNoDT9p85mbpAdtuuCFQ/view?utm_content=DAHC92PsaXM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc6b3acb459)
+
 # AI Agents Platform – Frontend Technical Assessment
+
+# Orbitina AI Agents Dashboard
+
+Frontend technical assessment built with Next.js, React and TypeScript.
+
+## Live Demo
+
+Production deployment available on Vercel:
+
+https://orbitina-dashboard.vercel.app/login
+
+## Repository
+
+https://github.com/Karolart/Orbitina-Dashboard
 
 Frontend application built with **React + Next.js (App Router) + TypeScript** for a senior frontend technical assessment.
 
