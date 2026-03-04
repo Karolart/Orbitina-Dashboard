@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Bot, Sparkles, CircleDot, Zap } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -96,8 +97,16 @@ export default function LoginPage() {
               animate={{ rotate: [0, 5, -5, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
             >
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#00D9FF] to-[#7FE9DE] flex items-center justify-center shadow-lg shadow-[#00D9FF]/30">
-                <Bot className="w-10 h-10 text-white" />
+              <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-[#00D9FF] to-[#7FE9DE] shadow-lg shadow-[#00D9FF]/30 overflow-hidden">
+                <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-[#00D9FF] to-[#7FE9DE] shadow-lg shadow-[#00D9FF]/30 overflow-hidden flex items-center justify-center">
+                  <Image
+                    src="/logo.svg"
+                    alt="Orbitina Logo"
+                    width={80}
+                    height={80}
+                    className="scale-150 object-contain"
+                  />
+                </div>
               </div>
 
               <motion.div
@@ -110,7 +119,7 @@ export default function LoginPage() {
             </motion.div>
 
             <h1 className="text-3xl font-bold bg-gradient-to-r from-[#00D9FF] to-[#9D4EDD] bg-clip-text text-transparent mb-2">
-              AI Assistant OS
+              ORBITINA AGENTS
             </h1>
 
             <p className="text-gray-600 text-center">
@@ -156,7 +165,7 @@ export default function LoginPage() {
               disabled={loading}
               className="w-full h-12 rounded-full bg-gradient-to-r from-[#00D9FF] to-[#7FE9DE] hover:from-[#00C4EA] hover:to-[#6DD4C9] text-[#0F172A] font-semibold shadow-lg shadow-[#00D9FF]/30 hover:shadow-xl hover:shadow-[#00D9FF]/40 transition-all duration-300"
             >
-              {loading ? "Launching..." : "Login"}
+              {loading ? "Loading..." : "Login"}
             </button>
           </form>
 
